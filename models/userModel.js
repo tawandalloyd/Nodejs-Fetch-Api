@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 const userSchema = new mongoose.Schema({
   id: {
     type: Number,
-   // required: [true, 'id is required']
+    required: [true, 'id is required']
   },
   name: {
     type: String,
@@ -26,15 +26,15 @@ const userSchema = new mongoose.Schema({
   address: {
     street: {
       type: String,
-      //required: [true, 'Please tell us your address!']
+      required: [true, 'Please tell us your address!']
     },
     suite: {
       type: String,
-      //required: [true, 'Please tell us your suite!']
+      required: [true, 'Please tell us your suite!']
     },
     city: {
       type: String,
-      //required: [true, 'Please tell us your city!']
+      required: [true, 'Please tell us your city!']
     },
     zipcode: {
       type: String,

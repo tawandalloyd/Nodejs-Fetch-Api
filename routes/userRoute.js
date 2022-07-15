@@ -4,7 +4,8 @@ const userController = require('./../controllers/userController');
 
 const router = express.Router();
 
-router.post('/upload', ImportJSONDATA.importData)
+router.post('/upload', ImportJSONDATA.importData);
+router.delete('/', ImportJSONDATA.deleteAllData);
 
 router.post('/', userController.createUser);
 
@@ -19,8 +20,5 @@ router
   .patch(userController.updateUser)
 
 module.exports = router;
-
-router.delete('/delete', ImportJSONDATA.deleteAllData)
-
 
 module.exports = router;

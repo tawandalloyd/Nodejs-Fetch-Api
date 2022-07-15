@@ -7,10 +7,15 @@ const User = require('./../../models/userModel');
 const users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'utf-8'));
 
 // IMPORT DATA INTO DB
-const importData = async () => {
+const importData = async (req,res) => {
   try {
     await User.create(users, { validateBeforeSave: false });
     console.log('Data successfully loaded!');
+    res.status(200).json({
+      status: 'success',
+      message: 'loaded data successfully!'
+    });
+
   } catch (err) {
     console.log(err);
   }
@@ -18,9 +23,13 @@ const importData = async () => {
 };
 
 // DELETE ALL DATA FROM DB
-const deleteData = async () => {
+const deleteData = async (req,res) => {
   try {
     await User.deleteMany();
+    res.status(200).json({
+      status: 'success',
+      message: 'deleted!'
+    });
     console.log('Data successfully deleted!');
   } catch (err) {
     console.log(err);
